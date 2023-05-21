@@ -1,8 +1,62 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.NutriMatch" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Color -->
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/green_600</item>
+        <item name="colorPrimaryVariant">@color/test</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/orange_700</item>
+        <item name="colorSecondaryVariant">@color/test</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Error brand color. -->
+        <item name="colorError">@color/red_400</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/green_600</item>
+
+
+
+        <!-- Typography -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MdcTypographyStyles.Headline1
+        </item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MdcTypographyStyles.Headline2
+        </item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.MdcTypographyStyles.Headline3
+        </item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MdcTypographyStyles.Headline4
+        </item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MdcTypographyStyles.Headline5
+        </item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MdcTypographyStyles.Headline6
+        </item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MdcTypographyStyles.Subtitle1
+        </item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MdcTypographyStyles.Subtitle2
+        </item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MdcTypographyStyles.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MdcTypographyStyles.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.MdcTypographyStyles.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.MdcTypographyStyles.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.MdcTypographyStyles.Overline</item>
+
+
+
+        <!-- Shape -->
+        <item name="shapeAppearanceSmallComponent">
+            @style/ShapeAppearance.NutriMatch.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.NutriMatch.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">
+            @style/ShapeAppearance.NutriMatch.LargeComponent
+        </item>
+
     </style>
 
     <style name="Theme.NutriMatch" parent="Base.Theme.NutriMatch" />

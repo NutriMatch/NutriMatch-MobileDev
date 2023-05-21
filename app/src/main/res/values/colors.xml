@@ -2,4 +2,22 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="test">#00FFCC</color>
+    <!-- Custom Color -->
+<!--    <color name="green_700">#56a743</color>-->
+    <color name="green_600">#6ABC4E</color>
+    <color name="green_500">#78cd57</color>
+
+
+    <color name="orange_700">#F17E00</color>
+
+
+    <color name="red_400">#EB5757</color>
+
+
+    <color name="gray_700">#495D63</color>
+
+    
+
+
 </resources>

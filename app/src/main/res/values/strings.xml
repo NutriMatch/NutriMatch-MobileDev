@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">NutriMatch</string>
+    <string name="logo_description">NutriMatch Logo</string>
+
+
+    <!-- ErrorMessage -->
+    <string name="no_connection_error_message">Opps, the internet connection is lost. Recheck your connection.</string>
+    <string name="timeout_error_message">Connection timeout. Please try for a while longer.</string>
+    <string name="client_error_message">An error occurred in the application. Please try for a while longer.</string>
+    <string name="server_error_message">There is a server problem. Please try for a while longer</string>
+    <string name="unknown_error_message">An unexpected error occurred. Please contact our customer service for further assistance.</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_slogan">In a healthy body,\nthere is a strong soul.</string>
+    <string name="back">Back</string>
+    <string name="email">E-mail</string>
 </resources>
