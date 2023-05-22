@@ -15,6 +15,10 @@
         android:theme="@style/Theme.NutriMatch"
         tools:targetApi="31">
         <activity
+            android:name=".ui.master.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main" />
+        <activity
             android:name=".ui.auth.AuthActivity"
             android:exported="false" />
         <activity

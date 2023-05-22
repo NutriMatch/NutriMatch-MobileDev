@@ -3,10 +3,13 @@ package com.akmalmf.nutrimatch.abstraction.base
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import com.akmalmf.nutrimatch.R
 import com.akmalmf.nutrimatch.abstraction.data.HttpResult
 import com.akmalmf.nutrimatch.utils.NetworkConnectivityLiveData
@@ -16,9 +19,24 @@ import com.google.android.material.snackbar.Snackbar
  * Created by Akmal Muhamad Firdaus on 2023/05/22 03:13
  * akmalmf007@gmail.com
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<VB: ViewBinding>: Fragment() {
+    private var _bi: VB? = null
+    protected val bi: VB get() = _bi!!
+
+    abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
+
     protected var isOnline = false
     abstract fun initView(savedInstanceState: Bundle?)
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _bi = bindingInflater(inflater, container, false)
+        return _bi!!.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _bi = null
+    }
 
     abstract fun initObservable()
 

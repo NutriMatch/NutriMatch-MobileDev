@@ -1,13 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.register.RegisterFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.auth.register.RegisterFragment"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonBack"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_back"
+        app:iconPadding="-12dp"
+        android:text="@string/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+        android:id="@+id/textLabel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/register_slogan"
+        android:textAppearance="?textAppearanceHeadline6"
+        android:textColor="@color/gray_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputFullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/fullname"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            tools:ignore="TextContrastCheck"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/birthday"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="@+id/textInputFullname"
+        app:layout_constraintStart_toStartOf="@+id/textInputFullname"
+        app:layout_constraintTop_toBottomOf="@+id/textInputFullname"
+        app:endIconDrawable="@drawable/ic_calendar"
+        app:endIconMode="custom">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/email"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="@+id/textInputFullname"
+        app:layout_constraintStart_toStartOf="@+id/textInputFullname"
+        app:layout_constraintTop_toBottomOf="@+id/textInputBirthday">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPasword"
+        android:layout_marginTop="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/password"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="@+id/textInputEmail"
+        app:layout_constraintStart_toStartOf="@+id/textInputEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/password_selector">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/register"
+        android:textAppearance="?textAppearanceButton"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearance="?shapeAppearanceSmallComponent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

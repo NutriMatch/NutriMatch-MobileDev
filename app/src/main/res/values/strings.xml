@@ -14,4 +14,25 @@
     <string name="login_slogan">In a healthy body,\nthere is a strong soul.</string>
     <string name="back">Back</string>
     <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="register_slogan">Start the journey to\na healthy life\nfrom now.</string>
+    <string name="fullname">Fullname</string>
+    <string name="birthday">Birthday</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_scan_food">Scan Food</string>
+    <string name="title_profile">Profile</string>
+    <string name="body_measurement_slogan">Enter your\nbody measurements.</string>
+    <string name="next">Next</string>
+    <string name="height">Height (cm)</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="activities_level">Activities Level</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
 </resources>

@@ -1,24 +1,27 @@
 package com.akmalmf.nutrimatch.ui.auth.register
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.akmalmf.nutrimatch.R
+import androidx.navigation.fragment.findNavController
+import com.akmalmf.nutrimatch.abstraction.base.BaseFragment
+import com.akmalmf.nutrimatch.databinding.FragmentRegisterBinding
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_register, container, false)
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRegisterBinding
+        get() = FragmentRegisterBinding::inflate
+
+    override fun initView(savedInstanceState: Bundle?) {
+        bi.buttonRegister.setOnClickListener {
+            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToBodyMeasurementFragment())
+        }
+        bi.buttonBack.setOnClickListener {
+            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToOnBoardingFragment())
+        }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
+    override fun initObservable() {
 
+    }
 }

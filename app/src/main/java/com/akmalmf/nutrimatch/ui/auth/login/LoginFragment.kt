@@ -1,24 +1,28 @@
 package com.akmalmf.nutrimatch.ui.auth.login
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.akmalmf.nutrimatch.R
+import androidx.navigation.fragment.findNavController
+import com.akmalmf.nutrimatch.abstraction.base.BaseFragment
+import com.akmalmf.nutrimatch.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentLoginBinding
+        get() = FragmentLoginBinding::inflate
+
+    override fun initView(savedInstanceState: Bundle?) {
+        bi.buttonLogin.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainActivity())
+        }
+        bi.buttonBack.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToOnBoardingFragment())
+        }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun initObservable() {
+
     }
 
 }

@@ -9,7 +9,8 @@
     android:paddingEnd="24dp">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/buttonBack"
+        android:layout_marginTop="10dp"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,13 +24,13 @@
         android:id="@+id/textLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="35dp"
         android:text="@string/login_slogan"
         android:textAppearance="?textAppearanceHeadline6"
         android:textColor="@color/gray_700"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialButton" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputEmail"
@@ -49,6 +50,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
+            tools:ignore="TextContrastCheck"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPasword"
+        android:layout_marginTop="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/password"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="@+id/textInputEmail"
+        app:layout_constraintStart_toStartOf="@+id/textInputEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/password_selector">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
