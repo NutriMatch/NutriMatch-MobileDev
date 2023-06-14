@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akmalmf.nutrimatch.abstraction.data.Resource
+import com.akmalmf.nutrimatch.core.data.source.local.SharedPrefImpl
 import com.akmalmf.nutrimatch.core.data.source.remote.response.BaseApiResponse
 import com.akmalmf.nutrimatch.core.domain.model.UserModel
-import com.akmalmf.nutrimatch.core.domain.repository.SharePrefRepository
 import com.akmalmf.nutrimatch.core.domain.usecase.profile.GetProfileUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val getProfileUseCase: GetProfileUseCase,
-    private val sharePref: SharePrefRepository
+    private val sharePref: SharedPrefImpl
 ): ViewModel() {
     private val _profile = MutableLiveData<Resource<BaseApiResponse<UserModel>>>()
     val profile: LiveData<Resource<BaseApiResponse<UserModel>>>

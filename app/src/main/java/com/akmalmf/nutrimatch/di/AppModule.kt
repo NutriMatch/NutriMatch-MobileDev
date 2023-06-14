@@ -39,11 +39,6 @@ object AppModule {
         return MasterRepositoryImpl(api)
     }
 
-    @Reusable
-    @Provides
-    fun provideSharePrefRepository(@ApplicationContext context: Context): SharePrefRepository {
-        return SharedPrefImpl(context)
-    }
 
     @Singleton
     @Provides

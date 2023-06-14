@@ -1,11 +1,11 @@
 package com.akmalmf.nutrimatch.di
 
 import com.akmalmf.nutrimatch.BuildConfig
+import com.akmalmf.nutrimatch.core.data.source.local.SharedPrefImpl
 import com.akmalmf.nutrimatch.core.data.source.remote.interceptor.AuthInterceptor
 import com.akmalmf.nutrimatch.core.data.source.remote.network_service.AuthApiService
 import com.akmalmf.nutrimatch.core.data.source.remote.network_service.MasterApiService
 import com.akmalmf.nutrimatch.core.data.source.remote.network_service.ProfileApiService
-import com.akmalmf.nutrimatch.core.domain.repository.SharePrefRepository
 import com.akmalmf.nutrimatch.di.qualifiers.AuthenticatedRetrofitClient
 import com.akmalmf.nutrimatch.di.qualifiers.NotAuthenticatedRetrofitClient
 import dagger.Module
@@ -16,8 +16,8 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import javax.inject.Singleton
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 /**
  * Created by Akmal Muhamad Firdaus on 2023/06/01 22:47
@@ -38,17 +38,18 @@ object NetworkModule {
         return logging
     }
 
-    @Singleton
     @Provides
-    fun providesJWTInterceptor(sharePrefRepository: SharePrefRepository): Interceptor =
-        AuthInterceptor(sharePrefRepository.getAccessToken())
+    @Singleton
+    fun provideAuthInterceptor(sharedPrefImpl: SharedPrefImpl): AuthInterceptor {
+        return AuthInterceptor(sharedPrefImpl)
+    }
 
     @Singleton
     @Provides
     @AuthenticatedRetrofitClient
     fun providesOkHttpClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
-        JWTInterceptor: Interceptor
+        JWTInterceptor: AuthInterceptor
     ): OkHttpClient {
         return OkHttpClient
             .Builder()

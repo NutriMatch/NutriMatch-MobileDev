@@ -1,7 +1,7 @@
 package com.akmalmf.nutrimatch.ui.splash
 
 import androidx.lifecycle.ViewModel
-import com.akmalmf.nutrimatch.core.domain.repository.SharePrefRepository
+import com.akmalmf.nutrimatch.core.data.source.local.SharedPrefImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val sharePref: SharePrefRepository
+    private val sharePref: SharedPrefImpl
 ): ViewModel(){
     fun onLogin() = sharePref.isOnLogin()
 }
