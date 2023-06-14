@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ui.scan_food.dialog.SuccessSubmitDialogFragment"
+    app:cardCornerRadius="15dp"
+    android:background="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageIconSuccess"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_check"
+            app:tint="@color/green_600" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageIconSuccess"
+            tools:text="Success!" />
+
+        <TextView
+            android:id="@+id/textSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/textTitle"
+            app:layout_constraintStart_toStartOf="@+id/textTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            tools:text="Lorem ipsum dolor sit amet" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonClose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/close"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/orange_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSubTitle"
+            app:layout_constraintVertical_bias="1.0"
+            app:shapeAppearance="?shapeAppearanceSmallComponent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+    tools:context=".ui.main.profile.ProfileFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/included"
+                layout="@layout/app_bar" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="23dp"
+                android:src="@mipmap/ic_launcher_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/included"
+                app:shapeAppearance="@style/ShapeAppearance.NutriMatch.CircleComponent" />
+
+            <TextView
+                android:id="@+id/textFullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                tools:text="Akmal Muhamad Firdaus"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textColor="@color/gray_700"
+                app:layout_constraintBottom_toTopOf="@+id/textEmail"
+                app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                app:layout_constraintTop_toTopOf="@+id/imageProfile"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                tools:text="akmalmf007@gmail.com"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintBottom_toTopOf="@+id/textGender"
+                app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                app:layout_constraintTop_toBottomOf="@+id/textFullname" />
+
+            <TextView
+                android:id="@+id/textGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="@string/male"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Overline12"
+                app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+                app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                app:layout_constraintTop_toBottomOf="@+id/textEmail" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:constraint_referenced_ids="textFullname, textEmail, textGender"
+                tools:visibility="visible" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+                app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                app:layout_constraintTop_toTopOf="@+id/imageProfile"
+                tools:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <View
+                android:id="@+id/separator1"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="23dp"
+                android:background="@color/gray_50"
+                app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+
+            <ImageView
+                android:id="@+id/imageEditAccountInformation"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:contentDescription="@string/edit_button"
+                android:focusable="true"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textAccountInformation" />
+
+            <TextView
+                android:id="@+id/textAccountInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/account_information"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator1" />
+
+            <TextView
+                android:id="@+id/textFullnameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/fullname"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textAccountInformation"
+                app:layout_constraintTop_toBottomOf="@+id/textAccountInformation" />
+
+            <TextView
+                android:id="@+id/textFullnameAccounts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textAccountInformation"
+                app:layout_constraintTop_toBottomOf="@+id/textFullnameTitle"
+                tools:text="Akmal Muhamad Firdaus" />
+
+
+            <TextView
+                android:id="@+id/textEmailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="@string/email"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textAccountInformation"
+                app:layout_constraintTop_toBottomOf="@+id/textFullnameAccounts" />
+
+            <TextView
+                android:id="@+id/textEmailAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textAccountInformation"
+                app:layout_constraintTop_toBottomOf="@+id/textEmailTitle"
+                tools:text="akmalmf007@gmail.com" />
+
+            <TextView
+                android:id="@+id/textBirthdayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="@string/birthday"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textAccountInformation"
+                app:layout_constraintTop_toBottomOf="@+id/textEmailAccount" />
+
+            <TextView
+                android:id="@+id/textBirthdayAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textAccountInformation"
+                app:layout_constraintTop_toBottomOf="@+id/textBirthdayTitle"
+                tools:text="June 24, 2002" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupAccountInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:constraint_referenced_ids="textFullnameTitle,textEmailTitle,textEmailAccount,textBirthdayTitle,textBirthdayAccount"
+                tools:visibility="visible" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerAccountInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/separator2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textAccountInformation"
+                tools:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp" />
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <View
+                android:id="@+id/separator2"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/gray_50"
+                app:layout_constraintTop_toBottomOf="@+id/textBirthdayAccount" />
+
+            <ImageView
+                android:id="@+id/imageEditBodyMeasurements"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:contentDescription="@string/edit_button"
+                android:focusable="true"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textBodyMeasurements" />
+
+            <TextView
+                android:id="@+id/textBodyMeasurements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/body_measurements"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
+            <TextView
+                android:id="@+id/textHeightTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/height_title"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textBodyMeasurements" />
+
+            <TextView
+                android:id="@+id/textHeightBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textHeightTitle"
+                tools:text="170 cm" />
+
+            <TextView
+                android:id="@+id/textWeightTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="@string/weight_title"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textHeightBody" />
+
+            <TextView
+                android:id="@+id/textWeightBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textWeightTitle"
+                tools:text="65 kg" />
+
+
+            <TextView
+                android:id="@+id/textActivityLevelTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="@string/activity_level"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textWeightBody" />
+
+            <TextView
+                android:id="@+id/textActivityLevelBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textActivityLevelTitle"
+                tools:text="@string/low" />
+
+            <TextView
+                android:id="@+id/textGenderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="@string/gender"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textActivityLevelBody" />
+
+            <TextView
+                android:id="@+id/textGenderBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textBodyMeasurements"
+                app:layout_constraintTop_toBottomOf="@+id/textGenderTitle"
+                tools:text="@string/male" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupBodyMeasurements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:constraint_referenced_ids="textHeightTitle,textHeightBody, textWeightBody, textWeightTitle, textActivityLevelBody,textActivityLevelTitle, textGenderBody,textGenderTitle"
+                tools:visibility="visible" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerBodyMeasurements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBodyMeasurements"
+                tools:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp" />
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp" />
+
+                    <include
+                        layout="@layout/item_shimmer_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <View
+                android:id="@+id/separator3"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/gray_50"
+                app:layout_constraintTop_toBottomOf="@+id/textGenderBody" />
+
+            <ImageView
+                android:id="@+id/imageEditPassword"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:contentDescription="@string/edit_button"
+                android:focusable="true"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textPassword" />
+
+            <TextView
+                android:id="@+id/textPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/password"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator3" />
+
+            <TextView
+                android:id="@+id/textPasswordDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/password_description"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintStart_toStartOf="@+id/textPassword"
+                app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+
+            <View
+                android:id="@+id/separator4"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/gray_50"
+                app:layout_constraintTop_toBottomOf="@+id/textPasswordDescription" />
+
+            <LinearLayout
+                android:id="@+id/layoutLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/separator4"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/imageLogout"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_logout"
+                    android:contentDescription="@string/logout_button_desc"/>
+
+                <TextView
+                    android:id="@+id/textLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/logout"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"
+                    android:textColor="@color/red_400" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/separator5"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/gray_50"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutLogout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

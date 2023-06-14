@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="66dp"
-        android:background="@drawable/img_onboarding"
+        android:background="@drawable/image_onboarding1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,52 +40,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:id="@+id/constraintLayout"
-        app:shapeAppearance="@style/ShapeAppearance.NutriMatch.LargeComponent"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape_background_radius_top_right_left_20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:shapeAppearance="?shapeAppearanceSmallComponent"
-                android:textAppearance="?textAppearanceButton"
-                android:textStyle="bold"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="42dp"
-                android:layout_marginEnd="24dp"
-                android:text="@string/login"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            app:shapeAppearance="?shapeAppearanceSmallComponent"
+            android:textAppearance="?textAppearanceButton"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonRegister"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                app:shapeAppearance="?shapeAppearanceSmallComponent"
-                android:textAppearance="?textAppearanceButton"
-                android:textStyle="bold"
-                app:strokeColor="@color/green_600"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="27dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="40dp"
-                android:text="@string/register"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRegister"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            app:shapeAppearance="?shapeAppearanceSmallComponent"
+            android:textAppearance="?textAppearanceButton"
+            android:textStyle="bold"
+            app:strokeColor="@color/green_600"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

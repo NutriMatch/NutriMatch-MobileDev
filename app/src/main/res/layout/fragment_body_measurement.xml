@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.auth.body_measurement.BodyMeasurementFragment"
     android:paddingStart="24dp"
-    android:paddingEnd="24dp">
+    android:paddingEnd="24dp"
+    tools:context=".ui.auth.body_measurement.BodyMeasurementFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonBack"
-        android:layout_marginTop="10dp"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/back"
         app:icon="@drawable/ic_back"
         app:iconPadding="-12dp"
-        android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textLabel"
@@ -34,40 +34,42 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputHeight"
+        style="@style/LayoutTextFieldOutline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:hint="@string/height"
-        app:helperTextEnabled="true"
         app:endIconDrawable="@drawable/ic_height"
         app:endIconMode="custom"
+        app:helperTextEnabled="true"
         app:helperTextTextColor="@color/red_400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textLabel">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:maxLength="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            tools:ignore="TextContrastCheck"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"/>
+            android:maxLength="3"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
+            tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputWeight"
-        android:maxLength="4"
-        android:layout_marginTop="22dp"
+        style="@style/LayoutTextFieldOutline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
         android:focusable="true"
-        app:endIconDrawable="@drawable/ic_weight"
-        app:endIconMode="custom"
         android:focusableInTouchMode="true"
         android:hint="@string/weight"
+        android:maxLength="4"
+        app:endIconDrawable="@drawable/ic_weight"
+        app:endIconMode="custom"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/red_400"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,9 +86,9 @@
 
     <TextView
         android:id="@+id/textGender"
-        android:layout_marginTop="22dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
         android:text="@string/gender"
         android:textAppearance="?textAppearanceCaption"
         android:textColor="@color/gray_700"
@@ -96,34 +98,38 @@
 
     <RadioGroup
         android:id="@+id/radioGroupGender"
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/textGender"
         app:layout_constraintStart_toStartOf="@+id/textGender"
-        app:layout_constraintTop_toBottomOf="@id/textGender"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toBottomOf="@id/textGender">
+
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioMale"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
-            android:background="@drawable/radio_selector"
-            android:textColor="@color/text_color"
             android:layout_height="wrap_content"
-            android:text="@string/male"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
             android:gravity="center"
-            android:button="@android:color/transparent"
-            android:layout_marginEnd="16dp"/>
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:text="@string/male"
             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
-            android:background="@drawable/radio_selector"
-            android:textColor="@color/text_color"
+            android:textColor="@color/text_color" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
             android:button="@android:color/transparent"
+            android:gravity="center"
             android:text="@string/female"
-            android:gravity="center"/>
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+            android:textColor="@color/text_color" />
     </RadioGroup>
 
     <TextView
@@ -140,15 +146,16 @@
 
     <RadioGroup
         android:id="@+id/radioGroupActivitiesLevel"
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/textActivitiesLevel"
         app:layout_constraintStart_toStartOf="@+id/textActivitiesLevel"
         app:layout_constraintTop_toBottomOf="@+id/textActivitiesLevel">
 
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioLow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="27dp"
@@ -161,6 +168,7 @@
             android:textColor="@color/text_color" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="27dp"
@@ -173,6 +181,7 @@
             android:textColor="@color/text_color" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioHigh"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -184,66 +193,17 @@
             android:textColor="@color/text_color" />
     </RadioGroup>
 
-
-<!--        android:id="@+id/chipGroupActivitiesLevel"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textActivitiesLevel"-->
-<!--        app:singleSelection="true">-->
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <com.google.android.material.chip.Chip-->
-<!--                android:id="@+id/chipLow"-->
-<!--                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"-->
-<!--                android:layout_marginEnd="27dp"-->
-<!--                android:textAlignment="center"-->
-<!--                style="@style/ChipComponent"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="55dp"-->
-<!--                android:checked="true"-->
-<!--                android:text="@string/low"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/chipMedium"/>-->
-
-<!--            <com.google.android.material.chip.Chip-->
-<!--                android:id="@+id/chipMedium"-->
-<!--                style="@style/ChipComponent"-->
-<!--                android:layout_marginEnd="27dp"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="55dp"-->
-<!--                android:text="@string/medium"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/chipHigh"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/chipLow"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/chipLow" />-->
-
-<!--            <com.google.android.material.chip.Chip-->
-<!--                android:id="@+id/chipHigh"-->
-<!--                style="@style/ChipComponent"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="55dp"-->
-<!--                android:text="@string/high"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/chipMedium"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/chipMedium" />-->
-
-
-
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--    </com.google.android.material.chip.ChipGroup>-->
-
+    <TextView
+        android:id="@+id/textDescriptionActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textAppearance="?textAppearanceCaption"
+        android:textColor="@color/gray_700"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupActivitiesLevel"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupActivitiesLevel"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupActivitiesLevel"
+        tools:text="@string/low_activity_description" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -260,7 +220,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:shapeAppearance="?shapeAppearanceSmallComponent" />
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNext"
+        app:layout_constraintEnd_toEndOf="@+id/buttonNext"
+        app:layout_constraintStart_toStartOf="@+id/buttonNext"
+        app:layout_constraintTop_toTopOf="@+id/buttonNext" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

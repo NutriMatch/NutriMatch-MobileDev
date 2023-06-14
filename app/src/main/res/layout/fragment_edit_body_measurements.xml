@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.profile.edit.body_measurements.EditBodyMeasurementsFragment">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/app_bar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputHeight"
+        style="@style/LayoutTextFieldOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="24dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/height"
+        app:endIconDrawable="@drawable/ic_height"
+        app:endIconMode="custom"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputWeight"
+        style="@style/LayoutTextFieldOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="24dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/weight"
+        android:maxLength="4"
+        app:endIconDrawable="@drawable/ic_weight"
+        app:endIconMode="custom"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputHeight">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.InputText"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/gender"
+        android:textAppearance="?textAppearanceCaption"
+        android:textColor="@color/gray_700"
+        app:layout_constraintEnd_toEndOf="@+id/textInputWeight"
+        app:layout_constraintStart_toStartOf="@+id/textInputWeight"
+        app:layout_constraintTop_toBottomOf="@+id/textInputWeight" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textGender"
+        app:layout_constraintStart_toStartOf="@+id/textGender"
+        app:layout_constraintTop_toBottomOf="@id/textGender">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/male"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+            android:textColor="@color/text_color" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/female"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+            android:textColor="@color/text_color" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textActivitiesLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/activities_level"
+        android:textAppearance="?textAppearanceCaption"
+        android:textColor="@color/gray_700"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupGender"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupGender"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupGender" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupActivitiesLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textActivitiesLevel"
+        app:layout_constraintStart_toStartOf="@+id/textActivitiesLevel"
+        app:layout_constraintTop_toBottomOf="@+id/textActivitiesLevel">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioLow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="27dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/low"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"
+            android:textColor="@color/text_color" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="27dp"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/medium"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"
+            android:textColor="@color/text_color" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioHigh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radio_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/high"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"
+            android:textColor="@color/text_color" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textDescriptionActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        tools:text="@string/low_activity_description"
+        android:textAppearance="?textAppearanceCaption"
+        android:textColor="@color/gray_700"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupActivitiesLevel"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupActivitiesLevel"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupActivitiesLevel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/save"
+        android:textAppearance="?textAppearanceButton"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupActivitiesLevel"
+        app:layout_constraintVertical_bias="1.0"
+        app:shapeAppearance="?shapeAppearanceSmallComponent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSave"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSave"
+        app:layout_constraintStart_toStartOf="@+id/buttonSave"
+        app:layout_constraintTop_toTopOf="@+id/buttonSave" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

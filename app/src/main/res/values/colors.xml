@@ -9,6 +9,10 @@
     <color name="green_500">#78cd57</color>
 
 
+    <color name="blue_600">#2F80ED</color>
+
+
+
     <color name="orange_700">#F17E00</color>
 
 
@@ -16,6 +20,9 @@
 
 
     <color name="gray_700">#495D63</color>
+    <color name="gray_300">#94a7ac</color>
+    <color name="gray_100">#d3d9da</color>
+    <color name="gray_50">#F9F9F9</color>
 
     
 

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    android:layout_marginBottom="14dp"
+    android:clipToPadding="true"
+    app:cardCornerRadius="9dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageFood"
+            android:scaleType="centerCrop"
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/gray_300" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.CaptionBold"
+            android:textColor="@color/gray_700"
+            app:layout_constraintStart_toEndOf="@+id/imageFood"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/gray_300"/>
+
+        <TextView
+            android:id="@+id/textCalories"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            app:layout_constraintStart_toStartOf="@+id/textTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            android:background="@color/gray_300" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/circle_shape"
+            android:backgroundTint="@color/blue_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageFood" />
+
+        <TextView
+            android:id="@+id/textProtein"
+            android:layout_width="33dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            android:background="@color/gray_300"/>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/circle_shape"
+            android:backgroundTint="@color/orange_700"
+            app:layout_constraintBottom_toBottomOf="@+id/textProtein"
+            app:layout_constraintStart_toEndOf="@+id/textProtein"
+            app:layout_constraintTop_toTopOf="@+id/textProtein" />
+
+        <TextView
+            android:id="@+id/textFat"
+            android:layout_width="33dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/view2"
+            android:background="@color/gray_300" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/circle_shape"
+            android:backgroundTint="@color/gray_700"
+            app:layout_constraintBottom_toBottomOf="@+id/textFat"
+            app:layout_constraintStart_toEndOf="@+id/textFat"
+            app:layout_constraintTop_toTopOf="@+id/textFat" />
+
+        <TextView
+            android:id="@+id/textCarbs"
+            android:layout_width="33dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            app:layout_constraintBottom_toBottomOf="@+id/view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="@+id/view3"
+            android:background="@color/gray_300" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

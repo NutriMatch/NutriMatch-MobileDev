@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scan_food_navigation"
+    app:startDestination="@id/previewCaptureFragment">
+
+    <fragment
+        android:id="@+id/previewCaptureFragment"
+        android:name="com.akmalmf.nutrimatch.ui.scan_food.preview_capture.PreviewCaptureFragment"
+        android:label="fragment_preview_capture"
+        tools:layout="@layout/fragment_preview_capture" >
+        <action
+            android:id="@+id/action_previewCaptureFragment_to_nutritionalContentFragment"
+            app:destination="@id/nutritionalContentFragment" />
+        <action
+            android:id="@+id/action_previewCaptureFragment_to_submitManualFragment"
+            app:destination="@id/submitManualFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutritionalContentFragment"
+        android:name="com.akmalmf.nutrimatch.ui.scan_food.nutritional_content.NutritionalContentFragment"
+        android:label="fragment_nutritional_content"
+        tools:layout="@layout/fragment_nutritional_content">
+        <argument
+            android:name="nutrition_content"
+            app:argType="com.akmalmf.nutrimatch.core.data.source.remote.response.master.ScanNutritionResponse[]" />
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/submitManualFragment"
+        android:name="com.akmalmf.nutrimatch.ui.scan_food.submit_manual.SubmitManualFragment"
+        android:label="fragment_submit_manual"
+        tools:layout="@layout/fragment_submit_manual">
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </fragment>
+</navigation>

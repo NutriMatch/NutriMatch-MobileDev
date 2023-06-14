@@ -3,6 +3,7 @@ package com.akmalmf.nutrimatch.abstraction.base
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,11 +22,11 @@ import com.google.android.material.snackbar.Snackbar
  */
 abstract class BaseFragment<VB: ViewBinding>: Fragment() {
     private var _bi: VB? = null
-    protected val bi: VB get() = _bi!!
+    protected val bi: VB? get() = _bi
 
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
-    protected var isOnline = false
+    private var isOnline = false
     abstract fun initView(savedInstanceState: Bundle?)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -68,8 +69,15 @@ abstract class BaseFragment<VB: ViewBinding>: Fragment() {
     }
 
     fun snackBarError(message: String) {
+        Log.e(tag, message)
         Snackbar.make(requireActivity().findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT)
             .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.red_400))
+            .show()
+    }
+
+    fun snackBarWarning(message: String) {
+        Snackbar.make(requireActivity().findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
+            .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.orange_700))
             .show()
     }
 

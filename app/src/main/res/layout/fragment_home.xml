@@ -1,22 +1,752 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.master.dashboard.DashboardFragment">
+    android:background="#F9F9F9"
+    tools:context=".ui.main.dashboard.DashboardFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="24dp"
+                android:src="@mipmap/ic_launcher_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearance.NutriMatch.CircleComponent" />
+
+            <TextView
+                android:id="@+id/textFullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textColor="@color/gray_700"
+                app:layout_constraintBottom_toTopOf="@+id/textEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageProfile"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Akmal Muhamad Firdaus" />
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+                app:layout_constraintStart_toStartOf="@+id/textFullname"
+                app:layout_constraintTop_toBottomOf="@+id/textFullname"
+                tools:text="akmalmf007@gmail.com" />
+
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="Today, 17 May"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textColor="@color/gray_700"
+                app:layout_constraintStart_toStartOf="@+id/textEmail"
+                app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerGraph"
+                android:elevation="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDate">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:clipToPadding="true"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageProfile"
+                    app:layout_constraintStart_toStartOf="@+id/textDate"
+                    app:layout_constraintTop_toBottomOf="@+id/textDate">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ProgressBar
+                            android:id="@+id/progressCaloriesShimmer"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="123dp"
+                            android:layout_height="123dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="40dp"
+                            android:background="@drawable/circle_stroke"
+                            android:max="100"
+                            android:progressDrawable="@drawable/circle_progress"
+                            app:layout_constraintBottom_toBottomOf="@+id/layoutNutritionShimmer"
+                            app:layout_constraintEnd_toStartOf="@+id/layoutNutritionShimmer"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/layoutNutritionShimmer" />
+
+                        <TextView
+                            android:id="@+id/textCurrentCaloriesShimmer"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                            android:textColor="@color/gray_700"
+                            app:layout_constraintBottom_toTopOf="@+id/textViewShimmer"
+                            app:layout_constraintEnd_toEndOf="@+id/progressCaloriesShimmer"
+                            app:layout_constraintStart_toStartOf="@+id/progressCaloriesShimmer"
+                            app:layout_constraintTop_toTopOf="@+id/progressCaloriesShimmer"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            android:background="@color/gray_300"/>
+
+                        <TextView
+                            android:id="@+id/textViewShimmer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calories_left"
+                            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                            app:layout_constraintBottom_toBottomOf="@+id/progressCaloriesShimmer"
+                            app:layout_constraintEnd_toEndOf="@+id/textCurrentCaloriesShimmer"
+                            app:layout_constraintStart_toStartOf="@+id/textCurrentCaloriesShimmer"
+                            app:layout_constraintTop_toBottomOf="@+id/textCurrentCaloriesShimmer" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutNutritionShimmer"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="25dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/progressCaloriesShimmer"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/protein"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption" />
+
+                                <ProgressBar
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/bar_progress"
+                                    app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                                        android:textSize="12sp"
+                                        android:background="@color/gray_300" />
+
+                                    <TextView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                        android:background="@color/gray_300" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fat"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories" />
+
+                                <ProgressBar
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/bar_progress"
+                                    android:progressTint="@color/orange_700"
+                                    app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                                        android:textSize="12sp"
+                                        android:background="@color/gray_300" />
+
+                                    <TextView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                        android:background="@color/gray_300" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/carb"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories" />
+
+                                <ProgressBar
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/bar_progress"
+                                    android:progressTint="@color/gray_700"
+                                    app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                                        android:textSize="12sp"
+                                        android:background="@color/gray_300" />
+
+                                    <TextView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                        android:background="@color/gray_300" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardGraph"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:clipToPadding="true"
+                android:elevation="8dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageProfile"
+                app:layout_constraintStart_toStartOf="@+id/textDate"
+                app:layout_constraintTop_toBottomOf="@+id/textDate">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:id="@+id/progressCalories"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="123dp"
+                        android:layout_height="123dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="40dp"
+                        android:background="@drawable/circle_stroke"
+                        android:max="100"
+                        android:progressDrawable="@drawable/circle_progress"
+                        app:layout_constraintBottom_toBottomOf="@+id/layoutNutrition"
+                        app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/layoutNutrition"
+                        tools:progress="50" />
+
+                    <TextView
+                        android:id="@+id/textCurrentCalories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                        android:textColor="@color/gray_700"
+                        app:layout_constraintBottom_toTopOf="@+id/textView"
+                        app:layout_constraintEnd_toEndOf="@+id/progressCalories"
+                        app:layout_constraintStart_toStartOf="@+id/progressCalories"
+                        app:layout_constraintTop_toTopOf="@+id/progressCalories"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="1500" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calories_left"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                        app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                        app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                        app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                        app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutNutrition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="25dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/progressCalories"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/protein"
+                                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories" />
+
+                            <ProgressBar
+                                android:id="@+id/progressProtein"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp"
+                                android:max="100"
+                                android:progressDrawable="@drawable/bar_progress"
+                                app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:progress="50" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textCurrentProtein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                                    android:textSize="12sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories"
+                                    tools:text="10" />
+
+                                <TextView
+                                    android:id="@+id/textTargetProtein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories"
+                                    tools:text="/12g" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/fat"
+                                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories" />
+
+                            <ProgressBar
+                                android:id="@+id/progressFat"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp"
+                                android:max="100"
+                                android:progressDrawable="@drawable/bar_progress"
+                                android:progressTint="@color/orange_700"
+                                app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:progress="50" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textCurrentFat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                                    android:textSize="12sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories"
+                                    tools:text="10" />
+
+                                <TextView
+                                    android:id="@+id/textTargetFat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories"
+                                    tools:text="/12g" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/carb"
+                                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories" />
+
+                            <ProgressBar
+                                android:id="@+id/progressCarbs"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp"
+                                android:max="100"
+                                android:progressDrawable="@drawable/bar_progress"
+                                android:progressTint="@color/gray_700"
+                                app:layout_constraintEnd_toStartOf="@+id/layoutNutrition"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:progress="50" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textCurrentCarbs"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                                    android:textSize="12sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories"
+                                    tools:text="10" />
+
+                                <TextView
+                                    android:id="@+id/textTargetCarbs"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                                    app:layout_constraintBottom_toBottomOf="@+id/progressCalories"
+                                    app:layout_constraintEnd_toEndOf="@+id/textCurrentCalories"
+                                    app:layout_constraintStart_toStartOf="@+id/textCurrentCalories"
+                                    app:layout_constraintTop_toBottomOf="@+id/textCurrentCalories"
+                                    tools:text="/12g" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textBreakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/breakfast"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textColor="@color/gray_700"
+                app:layout_constraintStart_toStartOf="@+id/cardGraph"
+                app:layout_constraintTop_toBottomOf="@+id/cardGraph" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerBreakfast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="24dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBreakfast">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/shimmer_history_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        layout="@layout/shimmer_history_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBreakfast"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBreakfast"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_history_food" />
+
+            <ImageView
+                android:id="@+id/nodataBreakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_nodata"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBreakfast" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierBreakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="nodataBreakfast,rvBreakfast,shimmerBreakfast" />
+
+            <TextView
+                android:id="@+id/textLunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/lunch"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textColor="@color/gray_700"
+                app:layout_constraintStart_toStartOf="@+id/textBreakfast"
+                app:layout_constraintTop_toBottomOf="@+id/barrierBreakfast" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLunch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="24dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLunch">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/shimmer_history_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        layout="@layout/shimmer_history_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLunch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLunch"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_history_food" />
+
+            <ImageView
+                android:id="@+id/nodataLunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_nodata"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLunch" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierLunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="nodataLunch,rvLunch,shimmerLunch" />
+
+
+            <TextView
+                android:id="@+id/textDinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/dinner"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+                android:textColor="@color/gray_700"
+                app:layout_constraintStart_toStartOf="@+id/textLunch"
+                app:layout_constraintTop_toBottomOf="@+id/barrierLunch" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerDinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="24dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDinner">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/shimmer_history_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        layout="@layout/shimmer_history_food"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDinner"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_history_food" />
+
+            <ImageView
+                android:id="@+id/nodataDinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_nodata"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDinner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginBottom="10dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

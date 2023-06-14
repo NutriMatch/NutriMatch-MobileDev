@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp">
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="3dp"
+        android:layout_height="35dp"
+        android:background="@color/green_600"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/view1"
+        app:layout_constraintTop_toTopOf="@+id/view1"
+        tools:text="Mie Goreng" />
+
+    <TextView
+        android:id="@+id/textWeightFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Overline"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/textTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle"
+        tools:text="50g" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/blue_600"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textWeightFood"
+        app:layout_constraintTop_toBottomOf="@+id/textWeightFood"
+        app:layout_constraintVertical_bias="1" />
+
+    <TextView
+        android:id="@+id/textProtein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        tools:text="13.5g" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/orange_700"
+        app:layout_constraintBottom_toBottomOf="@+id/textProtein"
+        app:layout_constraintStart_toEndOf="@+id/textProtein"
+        app:layout_constraintTop_toTopOf="@+id/textProtein" />
+
+    <TextView
+        android:id="@+id/textFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        tools:text="13.5g" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="9dp"
+        android:layout_height="9dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/circle_shape"
+        android:backgroundTint="@color/gray_700"
+        app:layout_constraintBottom_toBottomOf="@+id/textFat"
+        app:layout_constraintStart_toEndOf="@+id/textFat"
+        app:layout_constraintTop_toTopOf="@+id/textFat" />
+
+    <TextView
+        android:id="@+id/textCarbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        tools:text="13.5g" />
+
+    <ImageView
+        android:id="@+id/imageOptions"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_options" />
+</androidx.constraintlayout.widget.ConstraintLayout>

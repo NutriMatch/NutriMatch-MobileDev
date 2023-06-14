@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.akmalmf.nutrimatch.ui.master.dashboard.DashboardFragment"
+        android:name="com.akmalmf.nutrimatch.ui.main.dashboard.DashboardFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_scan_food"
-        android:name="com.akmalmf.nutrimatch.ui.master.scan_food.ScanFoodFragment"
+        android:name="com.akmalmf.nutrimatch.ui.main.scan_food.ScanFoodFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_scan_food" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.akmalmf.nutrimatch.ui.master.profile.ProfileFragment"
+        android:name="com.akmalmf.nutrimatch.ui.main.profile.ProfileFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>

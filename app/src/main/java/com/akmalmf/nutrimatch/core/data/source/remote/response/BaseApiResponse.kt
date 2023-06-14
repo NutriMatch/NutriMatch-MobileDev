@@ -11,5 +11,5 @@ data class BaseApiResponse<D>(
 
     @SerializedName("message") val message: String,
 
-    @SerializedName("data") val dataResponse:D? = null
+    @SerializedName("data") val data:D? = null
 )

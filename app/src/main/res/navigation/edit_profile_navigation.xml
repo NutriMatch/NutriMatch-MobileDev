@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_profile_navigation"
+    app:startDestination="@id/editAccountInformationFragment"
+    tools:ignore="InvalidNavigation">
+
+    <fragment
+        android:id="@+id/editAccountInformationFragment"
+        android:name="com.akmalmf.nutrimatch.ui.main.profile.edit.account_information.EditAccountInformationFragment"
+        android:label="fragment_edit_account_information"
+        tools:layout="@layout/fragment_edit_account_information" />
+    <fragment
+        android:id="@+id/editBodyMeasurementsFragment"
+        android:name="com.akmalmf.nutrimatch.ui.main.profile.edit.body_measurements.EditBodyMeasurementsFragment"
+        android:label="fragment_edit_body_measurements"
+        tools:layout="@layout/fragment_edit_body_measurements" />
+    <fragment
+        android:id="@+id/editPasswordFragment"
+        android:name="com.akmalmf.nutrimatch.ui.main.profile.edit.password.EditPasswordFragment"
+        android:label="fragment_edit_password"
+        tools:layout="@layout/fragment_edit_password" />
+</navigation>

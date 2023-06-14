@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.scan_food.nutritional_content.NutritionalContentFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:elevation="12dp"
+        android:outlineProvider="bounds"
+        android:theme="@style/Theme.NutriMatch.AppBarOverlay"
+        app:elevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="noScroll"
+            app:titleEnabled="true">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                app:popupTheme="@style/Theme.NutriMatch.PopupOverlay" />
+
+
+            <TextView
+                android:id="@+id/textToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:text="@string/nutritional_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/black" />
+
+
+            <ImageView
+                android:id="@+id/imageAdd"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_add" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="106dp"
+                android:layout_height="106dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.NutriMatch.Radius18"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNutrition"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="24dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagePreview"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_nutrition" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSubmit"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/submit"
+                android:textAppearance="?textAppearanceButton"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvNutrition"
+                app:layout_constraintVertical_bias="1.0"
+                app:shapeAppearance="?shapeAppearanceSmallComponent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:visibility="gone"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonSubmit"
+                app:layout_constraintEnd_toEndOf="@+id/buttonSubmit"
+                app:layout_constraintStart_toStartOf="@+id/buttonSubmit"
+                app:layout_constraintTop_toTopOf="@+id/buttonSubmit" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

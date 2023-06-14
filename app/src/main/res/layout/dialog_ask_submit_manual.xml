@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    app:cardCornerRadius="15dp"
+    tools:context=".ui.scan_food.dialog.AskSubmitManualDialog">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageIconAlert"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_alert"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageIconAlert"
+            android:text="@string/title_alert" />
+
+        <TextView
+            android:id="@+id/textSubTitle"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/textTitle"
+            app:layout_constraintStart_toStartOf="@+id/textTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            android:text="@string/alert_description" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/orange_700"
+            android:text="No"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonYes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSubTitle"
+            app:shapeAppearance="?shapeAppearanceSmallComponent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonYes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/green_600"
+            android:text="@string/yes"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonNo"
+            app:layout_constraintTop_toBottomOf="@+id/textSubTitle"
+            app:shapeAppearance="?shapeAppearanceSmallComponent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
